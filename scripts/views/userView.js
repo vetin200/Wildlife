@@ -62,7 +62,7 @@ class UserView{
                 let rendered = Mustache.render(template, null);
                 $(_that._mainContentSelector).html(rendered);
 
-                $('#login-request-button').on('click',function (ev) {
+                $('#register-request-button').on('click',function (ev) {
 
                     let username = $('#username').val();
                     let fullName = $('#full-name').val();
@@ -78,7 +78,7 @@ class UserView{
 
                     };
 
-                    triggerEvent('login', data);
+                    triggerEvent('register', data);
                 });
 
             });

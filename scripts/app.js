@@ -15,45 +15,58 @@
     let homeView = new HomeView(mainContentSelector, selector);
     let homeController = new HomeController(homeView, requester, baseUrl,appKey);
     
+    let userView = new UserView(mainContentSelector, selector);
+    let userController = new UserController(userView, requester, baseUrl, appKey);
     
-
+    let postView = new PostView(mainContentSelector, selector);
+    let postController = new PostController(postView, requester, baseUrl, appKey);
 
     initEventServices();
 
     onRoute("#/", function () {
-    
+        if (!authService.isLoggedIn()){
+            homeController.showGuestPage();
+        }
+        else{
+            homeController.showUserPage();
+        }
     });
 
     onRoute("#/post-:id", function () {
-      
+        let top = $("#post-" + this.params['id']).position().top;
+        $(window).scrollTop(top);
     });
 
     onRoute("#/login", function () {
-        
+        userController.showLoginPage(authService.isLoggedIn());
     });
 
     onRoute("#/register", function () {
-        // Show the register page...
+        userController.showRegisterPage(authService.isLoggedIn());
     });
 
     onRoute("#/logout", function () {
-        // Logout the current user...
+        userController.logout();
     });
 
     onRoute('#/posts/create', function () {
-        // Show the new post page...
+        let data = {
+            fullName: sessionStorage ['fullName']
+        };
+
+        postController.showCreatePostPage(data, authService.isLoggedIn());
     });
 
     bindEventHandler('login', function (ev, data) {
-        // Login the user...
+        userController.login(data);
     });
 
     bindEventHandler('register', function (ev, data) {
-        // Register a new user...
+        userController.register(data)
     });
 
     bindEventHandler('createPost', function (ev, data) {
-        // Create a new post...
+        postController.createPost(data);
     });
 
     run('#/');
