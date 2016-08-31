@@ -17,11 +17,11 @@ class PostController{
             return;
         }
         if(requestData.content.length < 50){
-            showPopup('error', "Post content must consist of at least 10 symbols.");
+            showPopup('error', "Post content must consist of at least 50 symbols.");
             return;
         }
 
-        let requestUrl = thos._baseServiceUrl;
+        let requestUrl = this._baseServiceUrl;
 
         this._requester.post(requestUrl, requestData,
             function success(data){

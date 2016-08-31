@@ -24,11 +24,11 @@
     initEventServices();
 
     onRoute("#/", function () {
-        if (!authService.isLoggedIn()){
-            homeController.showGuestPage();
+        if (authService.isLoggedIn()){
+            homeController.showUserPage();
         }
         else{
-            homeController.showUserPage();
+            homeController.showGuestPage();
         }
     });
 

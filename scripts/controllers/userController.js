@@ -19,7 +19,7 @@ class UserController{
         function success(data) {
             showPopup('success', "You have successfully logged in");
 
-            sessionStorage['_authToken'] = data._kmd._authtoken;
+            sessionStorage['_authToken'] = data._kmd.authtoken;
             sessionStorage['username'] = data.username;
             sessionStorage['fullName'] = data.fullName;
 
@@ -39,8 +39,8 @@ class UserController{
             showPopup('error', "Full name must consist of at least 8 symbols.");
             return;
         }
-        if(requestData.password.length < 7){
-            showPopup('error', "Password must consist of at least 7 symbols.");
+        if(requestData.password.length < 6){
+            showPopup('error', "Password must consist of at least 6 symbols.");
             return;
         }
         if(requestData.password !== requestData.confirmPassword){
