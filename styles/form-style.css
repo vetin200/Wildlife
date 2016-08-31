@@ -1,5 +1,5 @@
 .wrapper {
-    /*background: url("../images/background.png") no-repeat center center fixed;*/
+    background: url("../images/background.jpg") no-repeat center center fixed;
     background-size: cover;
 }
 
@@ -71,4 +71,7 @@ button:hover {
 
 #register-title {
     width: 200px;
+    padding-bottom: 80px;
+    margin-bottom: -60px;
+
 }

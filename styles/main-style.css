@@ -3,13 +3,21 @@ a {
     color: #565656;
 }
 
+.article_wrapper{
+    background-color: rgba(255,255,255,.7);
+    width: 96%;
+    padding: 2%;
+    border-radius: 15px;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
 .dot {
-    margin-top: 13px;
-    margin-right: 10px;
+ background: url("../images/palm_logo.png");
+    width: 26px;
+    background-size: cover;
     float: left;
-    width: 20px;
-    border-radius: 40px;
-    background-color: #019c8c;
+    min-height: 31px;
+    margin: 5px;
+    margin-top: 10px;
 }
 
 .title {
@@ -27,13 +35,14 @@ a {
     padding-top: 2.5%;
     font: 16px Lato;
     font-weight: 500;
-    width: 80%;
+    width: 90%;
     margin-left: 3%;
     word-wrap: break-word;
 }
 
 .articles {
-    margin-left: 5%;
+    margin: 0 auto;
+    width: 95%
 }
 
 .single-post {
