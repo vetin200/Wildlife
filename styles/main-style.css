@@ -41,6 +41,8 @@ a {
 }
 
 .articles {
+    color:black;
+    padding-top: 50px;
     margin: 0 auto;
     width: 95%
 }
